@@ -96,13 +96,4 @@ Video ejemplo: https://www.youtube.com/watch?v=9mdsxCs6d40
 - Evaluación grupal (tutoría final): 10% de la nota final.
 - Evaluación individual (examen práctico en ordenador, previsto 3 de junio de 2026): 20%.
 
----
 
-Si quieres, puedo:
-
-- traducir este README al inglés;
-- reducirlo a una versión más breve para la portada del repo;
-- o generar una versión en PDF o README en formato docente.
-
-Indica qué prefieres.
-"""
