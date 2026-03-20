@@ -22,7 +22,7 @@ Implementar las siguientes funcionalidades mínimas:
 	- Para ello, haremos :
 		- Un constructor en `DeckOfCards` que genere la baraja ordenada a partir del enumerado.
 
-		[] : Hecho el constructor de `DeckOfCards` y el método `shuffle()`.
+		[] : Hecho el constructor de `DeckOfCards`.
 
 		- Un método `shuffle()` para barajar la baraja (puede usar `Collections.shuffle()`).
 
