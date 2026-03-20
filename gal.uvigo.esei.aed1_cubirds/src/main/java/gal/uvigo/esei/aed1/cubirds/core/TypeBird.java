@@ -1,36 +1,38 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
 /**
- * tipos de pájaros
+ * tipos de pájaros , simplemente porque ya lo tenemos en Card.java.
  */
 public enum TypeBird {
-    CURRUCA(2, 3), 
-    FLAMENCO(2, 3), 
-    PETIRROJO(3, 4), 
-    TUCAN(3, 4), 
-    PATO(4, 6), 
-    URRACA(5, 7), 
-    LECHUZA(7, 9), 
-    GUACAMAYO(7, 9);
+    CURRUCA, 
+    FLAMENCO, 
+    PETIRROJO, 
+    TUCAN, 
+    PATO, 
+    URRACA, 
+    LECHUZA, 
+    GUACAMAYO;
 
-
-
-    private final int numBandadaMinima;
-    private final int numBandadaCompleta;
-    public int getNumBandadaMinima() { // getter
-        return numBandadaMinima;
+    public static TypeBird getBirdIndex(int i) { //devuelve el tipo de pájaro según el índice
+        switch (i) {
+            case 0:
+                return CURRUCA;
+            case 1:
+                return FLAMENCO;
+            case 2:
+                return PETIRROJO;
+            case 3:
+                return TUCAN;
+            case 4:
+                return PATO;
+            case 5:
+                return URRACA;
+            case 6:
+                return LECHUZA;
+            case 7:
+                return GUACAMAYO;
+            default:
+                throw new IllegalArgumentException("Invalid index for TypeBird: " + i);
+        }
     }
-
-    public int getNumBandadaCompleta() { // getter
-        return numBandadaCompleta;
-    }
-
-    
-
-    TypeBird(int numBandadaMinima, int numBandadaCompleta) {
-        this.numBandadaMinima = numBandadaMinima;
-        this.numBandadaCompleta = numBandadaCompleta;
-    }
-
-
 }

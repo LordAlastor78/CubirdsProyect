@@ -10,5 +10,7 @@ public class Main {
     IU iu = new IU();
     Game cubirds = new Game(iu);
     cubirds.play();
+
   }
+  
 }

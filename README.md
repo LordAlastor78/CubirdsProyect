@@ -96,4 +96,8 @@ Video ejemplo: https://www.youtube.com/watch?v=9mdsxCs6d40
 - Evaluación grupal (tutoría final): 10% de la nota final.
 - Evaluación individual (examen práctico en ordenador, previsto 3 de junio de 2026): 20%.
 
+## Documentación
+
+La documentación del proyecto se encuentra en la carpeta `docs/`. Ver: [Documentación del proyecto](docs/index.md).
+
 

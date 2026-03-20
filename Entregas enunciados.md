@@ -17,12 +17,13 @@ Implementar las siguientes funcionalidades mínimas:
 
 - Crear la baraja de 110 cartas usando el enumerado `Card` del paquete `core`.
 	- Cada carta tiene: `TypeBird` (especie) y dos umbrales (bandada pequeña / bandada grande).
+	
 
 	# Acción a tomar: el constructor de `DeckOfCards` debe generar la baraja ordenada a partir del enumerado.
 	- Para ello, haremos :
 		- Un constructor en `DeckOfCards` que genere la baraja ordenada a partir del enumerado.
 
-		[] : Hecho el constructor de `DeckOfCards`.
+		[x] : Hecho el constructor de `DeckOfCards`.
 
 		- Un método `shuffle()` para barajar la baraja (puede usar `Collections.shuffle()`).
 
