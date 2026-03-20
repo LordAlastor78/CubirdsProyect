@@ -15,19 +15,21 @@ public enum TypeBird {
 
 
 
-    private final int numBandaraMinima;
-    private final int numBandaraCompleta;
-    public int getNumBandaraMinima() {
-        return numBandaraMinima;
+    private final int numBandadaMinima;
+    private final int numBandadaCompleta;
+    public int getNumBandadaMinima() { // getter
+        return numBandadaMinima;
     }
 
-    public int getNumBandaraCompleta() {
-        return numBandaraCompleta;
+    public int getNumBandadaCompleta() { // getter
+        return numBandadaCompleta;
     }
 
-    TypeBird(int numBandaraMinima, int numBandaraCompleta) {
-        this.numBandaraMinima = numBandaraMinima;
-        this.numBandaraCompleta = numBandaraCompleta;
+    
+
+    TypeBird(int numBandadaMinima, int numBandadaCompleta) {
+        this.numBandadaMinima = numBandadaMinima;
+        this.numBandadaCompleta = numBandadaCompleta;
     }
 
 
