@@ -12,7 +12,7 @@ private String name;
     public Player(String name) {
         this.name = name;
         this.hand= hand;
-        this.collection = new ArrayList<>
+        this.collection = new ArrayList<>();
     }
 
     
