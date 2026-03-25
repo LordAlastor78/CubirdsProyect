@@ -31,7 +31,8 @@ las siguientes:
 Bandada pequeña / Bandada grandeEspecie
 
 Número total de pájaros de esta especie en la baraja
-AED I. Proyecto 2025-2026 2
+
+AEDI. Proyecto 2025-2026 2
 
 • Guacamayo (4/6): 13 cartas
 • Urraca (5/7): 17 cartas
