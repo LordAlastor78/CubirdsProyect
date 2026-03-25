@@ -22,6 +22,7 @@ public class Game { // Clase principal
 
     }
 
+
     /**
      * Metodo principal para jugar:
      * 
@@ -41,25 +42,16 @@ public class Game { // Clase principal
      */
     public void play() {
 
-    // Aquí se implementaría la lógica del juego siguiendo los pasos descritos en el
-    // comentario anterior. Se utilizarían los métodos de las clases Player, Table
-    // y DeckOfCards para gestionar las cartas, la mesa y las colecciones de los
-    // jugadores, así como la interfaz de usuario (IU) para interactuar con el
-    // jugador y mostrar el estado del juego.
+        // Aquí se implementaría la lógica del juego siguiendo los pasos descritos en el
+        // comentario anterior. Se utilizarían los métodos de las clases Player, Table
+        // y DeckOfCards para gestionar las cartas, la mesa y las colecciones de los
+        // jugadores, así como la interfaz de usuario (IU) para interactuar con el
+        // jugador y mostrar el estado del juego.
+    }
 
     public static void main(String[] args) {
         IU iu = new IU(); // Crear instancia de la interfaz de usuario
         Game game = new Game(iu); // Crear instancia del juego
         game.play(); // Iniciar el juego
-
-        
-
-
-
-        
-
-        
-
     }
-
 }
