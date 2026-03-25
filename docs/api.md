@@ -10,5 +10,3 @@ Esta página lista las clases principales y una breve descripción. Para ver el 
 - `TypeBird` — enumeración de especies disponibles.
 - `IU` — utilidades de interfaz/entrada salida usadas por `Main`.
 - `Main` — punto de entrada para ejecutar una partida de prueba.
-
-Si quieres, puedo generar una página individual por clase con métodos y ejemplos.

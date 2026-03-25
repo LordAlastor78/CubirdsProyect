@@ -1,10 +1,5 @@
 # Compilar y ejecutar
 
-Requisitos:
-
-- Java 17+ instalado.
-- Maven (opcionalmente) para compilar el módulo.
-
 Compilar con Maven (desde la raíz del repositorio):
 
 ```powershell

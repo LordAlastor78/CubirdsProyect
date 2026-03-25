@@ -1,7 +1,13 @@
-"""
+	"""
 # CuBirds — Proyecto AED I (2025–2026)
 
 **Descripción**
+
+Alan Fernández Teijeiro
+Diego Feijóo Ángel
+Lois Feijóo 
+Mateo Fernández Rodríguez
+Andrés 
 
 CuBirds es un juego de cartas de pájaros para 2–5 jugadores, creado por Stefan Alexander (2018).
 El objetivo es conseguir en tu zona de juego una colección con 7 especies distintas (de 8), o bien
@@ -35,10 +41,13 @@ añadir 1 punto (1 carta) de esa especie a su zona de juego (opcional).
 ## Preparación de la partida
 
 1. Barajar la baraja.
+
 2. Colocar 4 filas en mesa con 3 cartas cada una; cada fila debe contener al menos 2 especies
 	 diferentes. Si aparece una especie repetida en la misma fila, descartar esa carta al fondo y
 	 robar otra hasta conseguir 3 especies distintas.
+
 3. Repartir 8 cartas a cada jugador (mano oculta).
+
 4. Elegir jugador inicial; el turno sigue en sentido de las agujas del reloj.
 
 ## Desarrollo del juego (por turno)

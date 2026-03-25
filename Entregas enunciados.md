@@ -29,6 +29,7 @@ las siguientes:
 • Pato (4/6): 13 cartas
 
 Bandada pequeña / Bandada grandeEspecie
+
 Número total de pájaros de esta especie en la baraja
 AED I. Proyecto 2025-2026 2
 
