@@ -45,7 +45,7 @@ public class Player {
         return hand.isEmpty();
     }
 
-    // Saber mano
+    // Saber mano 
 
     public void showHand() {
         System.out.println("Mano de" + name + " : ");
