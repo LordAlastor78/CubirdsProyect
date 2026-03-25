@@ -110,33 +110,33 @@ public enum Card {
   GUACAMAYO_10(4,6,TypeBird.GUACAMAYO),
   GUACAMAYO_11(4,6,TypeBird.GUACAMAYO),
   GUACAMAYO_12(4,6,TypeBird.GUACAMAYO),
-  GUACAMAYO_13(4,6,TypeBird.GUACAMAYO),
-  ;
-
+  GUACAMAYO_13(4,6,TypeBird.GUACAMAYO);
+  
   private final int smallFlock;
   private final int largeFlock;
   private final TypeBird typeBird;
 
-  Card(int smallFlock, int largeFlock, TypeBird typeBird) {
+  Card(int smallFlock, int largeFlock, TypeBird typeBird) { 
+    // constructor de la carta, con el número de pájaros en la bandada pequeña, el número de pájaros en la bandada grande y el tipo de pájaro
     this.smallFlock = smallFlock;
     this.largeFlock = largeFlock;
     this.typeBird = typeBird;
   }
 
-    public int getSmallFlock() {
+    public int getSmallFlock() { // número de pájaros que hay en la bandada pequeña
         return smallFlock;
     }
 
-    public int getLargeFlock() {
+    public int getLargeFlock() { // número de pájaros que hay en la bandada grande
         return largeFlock;
     }
 
-    public TypeBird getTypeBird() {
+    public TypeBird getTypeBird() { // tipo de pájaro
         return typeBird;
     }
 
   @Override
-  public String toString() {
+  public String toString() { // representación de la carta, por ejemplo: [FLAMENCO 2/3]
     StringBuilder sb = new StringBuilder();
     sb.append(" [").append(typeBird)
             .append("  ").append(smallFlock)
@@ -144,6 +144,7 @@ public enum Card {
             .append("] ");
 
     return sb.toString();
+
   }
 
 }
