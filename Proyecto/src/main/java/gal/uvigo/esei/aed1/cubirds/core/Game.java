@@ -19,7 +19,6 @@ public class Game { // Clase principal
         this.table = new Table();
         this.players = new Player[5]; // máximo 5 jugadores
         this.currentPlayerIndex = 0; // el primer jugador comienza
-
     }
 
 
@@ -47,11 +46,12 @@ public class Game { // Clase principal
         // y DeckOfCards para gestionar las cartas, la mesa y las colecciones de los
         // jugadores, así como la interfaz de usuario (IU) para interactuar con el
         // jugador y mostrar el estado del juego.
+        // aqui es donde se agrega lo de UI.
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         IU iu = new IU(); // Crear instancia de la interfaz de usuario
         Game game = new Game(iu); // Crear instancia del juego
         game.play(); // Iniciar el juego
-    }
+    }*/
 }

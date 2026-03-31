@@ -29,11 +29,12 @@ public static class DeckOfCards {
      * gestionar fácilmente las cartas por tipo durante el juego.
      */
 
-    LinkedList<LinkedList> groupFather; // declaramos la lista de listas, es decir, la baraja de cartas
+    List<List> groupFather; // declaramos la lista de listas, es decir, la baraja de cartas
 
     public DeckOfCards() {
 
         LinkedList<Card> group = new LinkedList<>(); // Lista temporal para agrupar cartas del mismo tipo
+                                                     // esta patraña debe ir en player para ordenar cada carta dentro de la lista de su tipo.
 
         for (Card card : Card.values()) { // querido andres qe
             if (card.getTypeBird().equals(group.getFirst().getTypeBird())) {

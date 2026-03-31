@@ -3,8 +3,9 @@ package gal.uvigo.esei.aed1.cubirds.core;
 public class Player {
 
     private String name;
-    private ArrayList<Card> hand;
-    private ArrayList<Card> collection;
+    private List<Card> hand; // lista de listas de cada tipo de carta, donde cada "sublista" incluye cada carta de su tipo.
+    private List<Card> collection; 
+    //hand se debe inicializar vacío.
 
     // Constructor
     public Player(String name) {
@@ -47,13 +48,12 @@ public class Player {
 
     // Saber mano 
 
-    public void showHand() {
-        System.out.println("Mano de" + name + " : ");
-
+    public String toString() {
+        StringBuilder <sb> ...
         for (Card c : hand) {
-            System.out.println(c);
         }
     }
+    return string del stringbuilder.
 }
 
 
