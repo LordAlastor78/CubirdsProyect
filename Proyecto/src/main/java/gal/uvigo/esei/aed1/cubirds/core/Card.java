@@ -115,6 +115,7 @@ public enum Card {
   private final int smallFlock;
   private final int largeFlock;
   private final TypeBird typeBird;
+  
 
   Card(int smallFlock, int largeFlock, TypeBird typeBird) {
     // constructor de la carta, con el número de pájaros en la bandada pequeña, el
@@ -165,4 +166,16 @@ public enum Card {
     return (this.smallFlock > 0 || this.largeFlock > 0);
   }
 
+  public int size() { // método para obtener la carta de la misma especie pero de diferente tamaño, por ejemplo: si la carta es de bandada pequeña, devuelve la carta de bandada grande del mismo tipo de pájaro
+    /* int counter = 0;
+      for (Card card : Card.values()) {
+        counter++;
+      }
+    return counter; // si no se encuentra la carta de diferente tamaño, devuelve null 
+    
+    También es posible de esta manera, aunque es menos eficiente, ya que recorre todas las cartas del enum para contar el número de cartas
+
+    */
+    return Card.values().length; 
+  }
 }

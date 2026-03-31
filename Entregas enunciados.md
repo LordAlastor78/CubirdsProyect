@@ -47,6 +47,7 @@ en su mano un número de cartas igual o mayor que 6 y menor que 9 (se forma una 
 pequeña) puede añadir UNA carta de petirrojo a su zona de juego, mientras que si tiene un número
 mayor o igual a 9 (se forma una bandada grande) puede añadir DOS cartas de petirrojo a su zona
 de juego.
+
 Bases del juego específicas para este proyecto
 Preparación de la Partida
 Se barajarán las cartas y se colocarán en la mesa 4 filas con 3 cartas de pájaro cada una, no puede
@@ -54,6 +55,7 @@ haber pájaros de la misma especie en la misma fila. En tal caso, se siguen saca
 conseguir 3 especies distintas, las cartas no utilizadas se devuelven de nuevo al final de la baraja.
 Cada jugador toma 8 cartas de la baraja que mantendrá ocultas en su mano. Comienza el juego un
 jugador cualquiera, después continuará el turno en el sentido de las agujas del reloj.
+
 Desarrollo del Juego
 En cada ronda, cada jugador por turnos puede realizar alguna de estas acciones:
 i. Jugar cartas (acción obligatoria)

@@ -4,53 +4,39 @@ import java.util.LinkedList;
 import java.util.List;
 import gal.uvigo.esei.aed1.cubirds.core.Card;
 
-public static class DeckOfCards {
-    /*
-     * Tiene que ser static para poder ser accedida desde la clase Game, que es la
-     * clase principal del proyecto, y desde la que se va a iniciar el juego. Si no
-     * fuera static, no se podría acceder a ella desde Game sin crear una instancia
-     * de DeckOfCards, lo cual no es necesario ni deseable en este caso, ya que
-     * DeckOfCards es una clase que representa un concepto general (la baraja de
-     * cartas) y no necesita mantener estado específico de una instancia para
-     * funcionar correctamente. Al ser static, DeckOfCards puede ser utilizada
-     * directamente sin necesidad de instanciarla, lo que simplifica su uso en el
-     * contexto del juego.
-     * 
-     */
+public class DeckOfCards {
 
-    // Lista de listas
-    // las listas pequeñas son todas las listas de un tipo de carta concreto
+    private static List<Card> deckOfCards = new LinkedList<>();
 
-    /**
-     * Constructor: crea una baraja de cartas ordenada a partir del enumerado
-     * DeckOfCards se encargará de crear la baraja a partir del enumerado Card,
-     * organizando las cartas en listas según su tipo. Cada tipo de carta (FLAMENCO,
-     * TUCAN, etc.) tendrá su propia lista dentro de la baraja. Esto permitirá
-     * gestionar fácilmente las cartas por tipo durante el juego.
-     */
-
-    List<List> groupFather; // declaramos la lista de listas, es decir, la baraja de cartas
-
+    // Método para crear el mazo de cartas
     public DeckOfCards() {
+        List<Card> allCards = new LinkedList<>();
 
-        LinkedList<Card> group = new LinkedList<>(); // Lista temporal para agrupar cartas del mismo tipo
-                                                     // esta patraña debe ir en player para ordenar cada carta dentro de la lista de su tipo.
-
-        for (Card card : Card.values()) { // querido andres qe
-            if (card.getTypeBird().equals(group.getFirst().getTypeBird())) {
-                group.add(card);
-            } else {
-                // Si el tipo de carta actual no coincide con el tipo de la primera carta del
-                // grupo, se crea un nuevo grupo y se agrega a la baraja.
-                groupFather.add(group);
-                group = new LinkedList<>(); // el grupo original se ve sustituído
-                group.add(card);
-
-            }
+        for (int i = 0; i < Card.values().length; i++) {
+            allCards.add(Card.values()[i]);
         }
 
+        while (allCards.size() > 0) {
+            int randomCard = (int) (Math.random() * allCards.size());
+            deckOfCards.add(allCards.get(randomCard));
+            allCards.remove(randomCard);
+        }
+    }
+
+    // Getter de un clon de la baraja, se hace clon para no quitar
+    // accidentalmente de la baraja original y mantener seguridad
+    public static List<Card> getDeckOfCards() { //
+        List<Card> deckClone = new LinkedList<>();
+        deckClone.addAll(deckOfCards);
+        return deckClone;
+    }
+
+    public static void removeLast() {
+        deckOfCards.removeLast();
+    }
+
+    public static void removeIndex(int i) {
+        deckOfCards.remove(i);
     }
 
 }
-
-// Alan, te invoco
