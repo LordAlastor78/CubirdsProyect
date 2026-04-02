@@ -14,18 +14,18 @@ public class Player {
     // Constructor
     public Player(String name) {
         this.name = name;
-        this.hand = hand;
+        this.hand = hand; 
         this.collection = new LinkedList<>();
     }
 
     public void generateHand() {
 
         for (int i = 0; i < 8; i++) { // 8 cartas por jugador
-            hand.add(i, DeckOfCards.getDeckOfCards().get(0));
+            this.hand.add(i, DeckOfCards.getDeckOfCards().get(0));
             DeckOfCards.removeIndex(0); // eliminamos el primero en cada ronda
         }
 
-        orderCards(hand);
+        orderCards(this.hand);
 
     }
 
@@ -40,28 +40,47 @@ public class Player {
         List<Card> groupCURRUCA = new LinkedList<>();
         List<Card> groupGUACAMAYO = new LinkedList<>();
 
-        int initialCardCounter = hand.size();
+        int initialCardCounter = this.hand.size();
 
         for (int i = 0; i < initialCardCounter; i++) {
-            switch (hand.get(i).getTypeBird()) {
+            switch (this.hand.get(i).getTypeBird()) {
                 case FLAMENCO:
-                    groupFLAMENCO.add(hand.get(i));
+                    groupFLAMENCO.add(this.hand.get(i));
+                    break;
                 case TUCAN:
-                    groupTUCAN.add(hand.get(i));
+                    groupTUCAN.add(this.hand.get(i));
+                    break;
                 case PATO:
-                    groupPATO.add(hand.get(i));
+                    groupPATO.add(this.hand.get(i));
+                    break;
                 case URRACA:
-                    groupURRACA.add(hand.get(i));
+                    groupURRACA.add(this.hand.get(i));
+                    break;
                 case PETIRROJO:
-                    groupPETIRROJO.add(hand.get(i));
+                    groupPETIRROJO.add(this.hand.get(i));
+                    break;
                 case LECHUZA:
-                    groupLECHUZA.add(hand.get(i));
+                    groupLECHUZA.add(this.hand.get(i));
+                    break;
                 case CURRUCA:
-                    groupCURRUCA.add(hand.get(i));
+                    groupCURRUCA.add(this.hand.get(i));
+                    break;
                 case GUACAMAYO:
-                    groupGUACAMAYO.add(hand.get(i));
+                    groupGUACAMAYO.add(this.hand.get(i));
+                    break;
             }
-        }
+        } 
+        
+        this.hand.clear(); //eliminar lo que había en la mano porque tiene el orden raro
+
+        this.hand.addAll(groupFLAMENCO);
+        this.hand.addAll(groupTUCAN);
+        this.hand.addAll(groupPATO);
+        this.hand.addAll(groupURRACA);
+        this.hand.addAll(groupPETIRROJO);
+        this.hand.addAll(groupLECHUZA);
+        this.hand.addAll(groupCURRUCA);
+        this.hand.addAll(groupGUACAMAYO);
     }
 
     // Getters
@@ -88,14 +107,25 @@ public class Player {
         collection.add(card);
     }
 
-    public boolean HasNoCards() {
+    public boolean hasNoCards() {
         return hand.isEmpty();
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     // Método toString
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Card c : hand) {
+        if (this.hasNoCards()) {
+            System.out.println("Sin cartas!");
+        }
+        else {
+            sb.append("\nBaraja de ").append(this.getName()).append(": ");
+            for (Card card : hand) {
+                sb.append("\n").append(card.getTypeBird()).append(": Bandada pequeña - ").append(card.getSmallFlock()).append("; Bandada grande - ").append(card.getLargeFlock());
+            }
         }
 
         return sb.toString();
@@ -103,4 +133,4 @@ public class Player {
 
 }
 
-// faltan excepciones
+

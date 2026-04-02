@@ -39,4 +39,12 @@ public class DeckOfCards {
         deckOfCards.remove(i);
     }
 
+    public static void addFirst(Card card) {
+        deckOfCards.addFirst(card);
+    }
+
+    public static void addLast(Card card) {
+        deckOfCards.addLast(card);
+    }
+
 }

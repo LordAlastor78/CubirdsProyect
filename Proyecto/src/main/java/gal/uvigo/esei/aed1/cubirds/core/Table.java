@@ -16,6 +16,7 @@ public class Table {
      */
 
     private List<Card>[] filas; // para filas y columnas en el inicializar()
+    
 
     // Constructor
     public Table() {
@@ -26,26 +27,45 @@ public class Table {
         }
     }
 
-    public void inicializar(DeckOfCards barajas) {
-        // Ejemplo: rellenar cada una de las 4 filas con 3 cartas
+    public void inicializarMesa () {
 
-        for (int i = 0; i < 4; i++) { // Para cada una de las 4 filas
-            for (int j = 0; j < 3; j++) { // columnas
-                this.filas[i].addAll(barajas.getDeckOfCards());
+        for (int i = 0; i < 4; i++) { // Se añaden 4 columnas
+            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la primera carta de la columna
+            DeckOfCards.removeLast();
 
-                // for para ver que no haya cartas iguales
-                for (int k = 0; k < j; k++) {
-                    if (this.filas[i].get(j).getTypeBird().equals(this.filas[i].get(k).getTypeBird())) {
-
-                        this.filas[i].set(j, barajas.getDeckOfCards().remove(0));
-                        k = -1;
-                    }
-                }
-
+            while (!(compareAndMove(i, 0) == true)) {
+                // Se repite el bucle hasta que se encuentre una carta válida (que no se repita el tipo de pájaro)
             }
 
-        }
+            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la siguiente carta
+            DeckOfCards.removeLast();
 
+            while (!(compareAndMove(i, 0) == true) && !(compareAndMove(i, 1) == true)) {
+                // Se repite el bucle hasta que se encuentre una carta válida
+            }
+
+            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la última carta
+            DeckOfCards.removeLast();
+
+        }
     }
 
-}
+    private boolean compareAndMove (int i, int checkIndex) {
+
+        boolean wasOk = true;
+        
+        if (DeckOfCards.getDeckOfCards().getLast().getTypeBird().equals(this.filas[i].get(checkIndex).getTypeBird())) { //si el tipo de pájaro de la ultima carta de deckOfCards ahora es igual al de la ultima que metimos (la primera de la fila i)...
+
+            wasOk = false;
+
+            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); //añadimos la primera carta de la columna
+            DeckOfCards.removeLast();
+            
+            return false;
+                
+        } else {
+            return true;
+        }
+    }
+
+    }
