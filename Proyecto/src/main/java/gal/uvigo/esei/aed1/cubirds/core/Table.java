@@ -29,43 +29,41 @@ public class Table {
 
     public void inicializarMesa () {
 
-        for (int i = 0; i < 4; i++) { // Se añaden 4 columnas
-            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la primera carta de la columna
-            DeckOfCards.removeLast();
+        for (int i = 0; i < 4; i++) { // 4 filas
+            while (this.filas[i].size() < 3) { // 3 cartas por fila
+                Card lastCard = DeckOfCards.getDeckOfCards().getLast();
+                DeckOfCards.removeLast();
 
-            while (!(compareAndMove(i, 0) == true)) {
-                // Se repite el bucle hasta que se encuentre una carta válida (que no se repita el tipo de pájaro)
+                if (compareAndMove(i, lastCard)) {
+                    this.filas[i].addFirst(lastCard);
+                } else {
+                    DeckOfCards.addLast(lastCard); // carta repetida vuelve al final
+                }
             }
-
-            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la siguiente carta
-            DeckOfCards.removeLast();
-
-            while (!(compareAndMove(i, 0) == true) && !(compareAndMove(i, 1) == true)) {
-                // Se repite el bucle hasta que se encuentre una carta válida
-            }
-
-            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); // Añadimos la última carta
-            DeckOfCards.removeLast();
-
         }
     }
 
-    private boolean compareAndMove (int i, int checkIndex) {
-
-        boolean wasOk = true;
-        
-        if (DeckOfCards.getDeckOfCards().getLast().getTypeBird().equals(this.filas[i].get(checkIndex).getTypeBird())) { //si el tipo de pájaro de la ultima carta de deckOfCards ahora es igual al de la ultima que metimos (la primera de la fila i)...
-
-            wasOk = false;
-
-            this.filas[i].addFirst(DeckOfCards.getDeckOfCards().getLast()); //añadimos la primera carta de la columna
-            DeckOfCards.removeLast();
-            
-            return false;
-                
-        } else {
-            return true;
+    private boolean compareAndMove (int i, Card lastCard) {
+        for (Card card : this.filas[i]) {
+            if (card.getTypeBird().equals(lastCard.getTypeBird())) {
+                return false;
+            }
         }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Mesa:\n");
+        for (int i = 0; i < this.filas.length; i++) {
+            sb.append("Fila ").append(i + 1).append(": ");
+            for (Card card : this.filas[i]) {
+                sb.append(card.toString());
+            }
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 
     }

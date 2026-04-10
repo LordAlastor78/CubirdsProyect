@@ -1,10 +1,8 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
-import java.util.Scanner;
 import gal.uvigo.esei.aed1.cubirds.iu.IU;
 import java.util.List;
 import java.util.LinkedList;
-import java.util.ArrayList;
 
 public class Game { // Clase principal
 
@@ -26,30 +24,21 @@ public class Game { // Clase principal
     }
 
     public List<Player> inicializarJugadores() { // Crear los jugadores
-        Scanner sc = new Scanner(System.in);
         List<Player> listaJugadores = new LinkedList<>();
         int numJugadores = 0;
 
         // rango de jugadores de 2 a 5
         do {
-            System.out.println("¿Cuantos van a jugar? (2 a 5): ");
-            if (sc.hasNextInt()) {
-                numJugadores = sc.nextInt();
-                sc.nextLine();
-            } else {
-                System.out.println("Porfavor, introduce un número válido");
+            numJugadores = iu.readNumber("¿Cuantos van a jugar? (2 a 5): ");
+            if (numJugadores < 2 || numJugadores > 5) {
+                iu.displayMessage("Por favor, introduce un número entre 2 y 5.");
             }
 
         } while (numJugadores < 2 || numJugadores > 5);
         // Se introduce el número de jugadores mediante su nombre
         for (int i = 0; i < numJugadores; i++) {
-            System.out.println("Nombre del jugador " + (i + 1) + ": ");
-            String nombre = sc.nextLine();
+            String nombre = iu.readString("Nombre del jugador " + (i + 1) + ": ");
             listaJugadores.add(new Player(nombre));
-
-            Player playerp = new Player(nombre); // se repite
-            listaJugadores.add(playerp); // player = playerp Uwu
-
         }
 
         return listaJugadores;
@@ -60,29 +49,20 @@ public class Game { // Clase principal
 
         List<Player> listaJugadores = inicializarJugadores();
 
-        this.players = inicializarJugadores().toArray(new Player[0]);
+        this.players = listaJugadores.toArray(new Player[0]);
+
+        for (Player player : this.players) {
+            player.generateHand();
+        }
 
         // ya barajamos y hacemos reparto en Deck of cards
 
         table.inicializarMesa();
 
-        // ahora bucle del juego
-
-        while (true) {
-
-            Player actual = players[currentPlayerIndex];
-
-            System.out.println("""
-                    ========================
-                    Turno de: """ + actual.getName() + """
-                    ========================
-                    """);
-
-            System.out.println(actual);
-
-            System.out.println("/TODO");
-
-            currentPlayerIndex = (currentPlayerIndex + 1) % players.length; // pasa al siguiente jugador
+        iu.displayMessage("\n=== REPARTO INICIAL ===");
+        iu.displayMessage(table.toString());
+        for (Player player : this.players) {
+            iu.displayMessage(player.toString());
         }
     }
 
