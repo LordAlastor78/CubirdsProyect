@@ -1,6 +1,5 @@
 package gal.uvigo.esei.aed1.cubirds.iu;
 
-
 import java.util.Scanner;
 
 public class IU {
@@ -34,12 +33,6 @@ public class IU {
         return toret;
     }
 
-    /**
-     * Lee un string de teclado
-     *
-     * @param msg mensaje a mostrar antes de la lectura
-     * @return el string leido
-     */
     public String readString(String msg) {
         String toret;
         System.out.print(msg);
@@ -47,15 +40,8 @@ public class IU {
         return toret;
     }
 
-    /**
-     * muestra un mensaje por pantalla
-     *
-     * @param msg el mensaje a mostrar
-     */
     public void displayMessage(String msg) {
         System.out.println(msg);
     }
-
-    
 
 }

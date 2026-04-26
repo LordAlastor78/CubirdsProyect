@@ -1,89 +1,120 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
-import java.util.Scanner;
 import gal.uvigo.esei.aed1.cubirds.iu.IU;
-import java.util.List;
-import java.util.LinkedList;
-import java.util.ArrayList;
+import es.uvigo.esei.aed1.tads.list.List;
+import es.uvigo.esei.aed1.tads.list.LinkedList;
 
-public class Game { // Clase principal
+public class Game {
 
     // Atributos
-
     private IU iu;
     private DeckOfCards deck;
     private Table table;
     private Player[] players;
-    private int currentPlayerIndex; // Índice del jugador actual
+    private int currentPlayerIndex;
 
     public Game(IU iu) {
-
         this.iu = iu;
         this.deck = new DeckOfCards();
         this.table = new Table();
-        this.players = new Player[5];// máximo 5 jugadores
-        this.currentPlayerIndex = 0; // el primer jugador comienza
+        this.players = new Player[5];
+        this.currentPlayerIndex = 0;
     }
 
-    public List<Player> inicializarJugadores() { // Crear los jugadores
-        Scanner sc = new Scanner(System.in);
-        List<Player> listaJugadores = new LinkedList<>();
-        int numJugadores = 0;
+    /** brief
+     * Inicializa los jugadores preguntando cantidad y nombres.
+     * Los jugadores se almacenan directamente en this.players.
+     */
+    private void inicializarJugadores() {
+        int numJugadores;
 
-        // rango de jugadores de 2 a 5
+        // Pedir número válido de jugadores (2-5)
         do {
-            System.out.println("¿Cuantos van a jugar? (2 a 5): ");
-            if (sc.hasNextInt()) {
-                numJugadores = sc.nextInt();
-                sc.nextLine();
-            } else {
-                System.out.println("Porfavor, introduce un número válido");
+            numJugadores = iu.readNumber("¿Cuántos van a jugar? (2 a 5): ");
+            if (numJugadores < 2 || numJugadores > 5) {
+                iu.displayMessage("Número inválido. Debe estar entre 2 y 5.");
             }
-
         } while (numJugadores < 2 || numJugadores > 5);
-        // Se introduce el número de jugadores mediante su nombre
+
+        // Crear array con tamaño exacto
+        this.players = new Player[numJugadores];
+
+        // Pedir nombre para cada jugador
         for (int i = 0; i < numJugadores; i++) {
-            System.out.println("Nombre del jugador " + (i + 1) + ": ");
-            String nombre = sc.nextLine();
-            listaJugadores.add(new Player(nombre));
+            String nombre;
+            do {
+                nombre = iu.readString("Nombre del jugador " + (i + 1) + ": ");
+                if (nombre.trim().isEmpty()) {
+                    iu.displayMessage("El nombre no puede estar vacío.");
+                }
+            } while (nombre.trim().isEmpty());
 
-            Player playerp = new Player(nombre); // se repite
-            listaJugadores.add(playerp); // player = playerp
-
+            this.players[i] = new Player(nombre.trim());
         }
 
-        return listaJugadores;
-
+        iu.displayMessage(numJugadores + " jugador(es) creado(s).");
     }
 
-    public void play() { // aun por hacer
+    /**
+     * Reparte 8 cartas a cada jugador desde el mazo y ordena sus manos por especie.
+     */
+    private void repartirCartas() {
+        iu.displayMessage("Repartiendo cartas...");
 
-        List<Player> listaJugadores = inicializarJugadores();
+        for (Player jugador : this.players) {
+            // Dar exactamente 8 cartas
+            for (int i = 0; i < 8; i++) {
+                Card carta = deck.takeFirstCard();
 
-        this.players = inicializarJugadores().toArray(new Player[0]);
-
-        // ya barajamos y hacemos reparto en Deck of cards
-
-        table.inicializarMesa();
-
-        // ahora bucle del juego
-
-        while (true) {
-
-            Player actual = players[currentPlayerIndex];
-
-            System.out.println("""
-                    ========================
-                    Turno de: """ + actual.getName() + """
-                    ========================
-                    """);
-
-            System.out.println(actual);
-
-            System.out.println("/TODO");
-
-            currentPlayerIndex = (currentPlayerIndex + 1) % players.length; // pasa al siguiente jugador
+                if (carta != null) {
+                    jugador.addCardToHand(carta);
+                }
+            }
         }
+
+        iu.displayMessage("Reparto completado. Cada jugador tiene 8 cartas.");
     }
 
+    /**
+     * Muestra el estado inicial: mesa y manos de todos los jugadores.
+     */
+    private void mostrarEstadoInicial() {
+        iu.displayMessage("\n========================================");
+        iu.displayMessage("ESTADO INICIAL DEL JUEGO");
+        iu.displayMessage("========================================\n");
+
+        // Mostrar mesa
+        iu.displayMessage(table.toString());
+
+        // Mostrar mano de cada jugador
+        for (Player jugador : this.players) {
+            iu.displayMessage(jugador.toString());
+            iu.displayMessage("");
+        }
+
+        iu.displayMessage("========================================\n");
+    }
+
+    public void play() {
+
+        inicializarJugadores();
+
+        repartirCartas();
+
+        this.table.inicializarMesa();
+
+        mostrarEstadoInicial();
+    }
+
+    public Player[] getPlayers() {
+        return this.players;
+    }
+
+    public Table getTable() {
+        return this.table;
+    }
+
+    public DeckOfCards getDeck() {
+        return this.deck;
+    }
 }

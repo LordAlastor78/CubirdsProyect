@@ -4,7 +4,7 @@ import es.uvigo.esei.aed1.tads.EmptyException;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
-public class LinkedList<T> implements List<T> {
+public class LinkedList<T> implements List<T>, Iterable<T> {
 
     private static final class Node<T> {
         private T value;
