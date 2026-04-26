@@ -1,5 +1,4 @@
 package gal.uvigo.esei.aed1.cubirds.core;
-
 import gal.uvigo.esei.aed1.cubirds.iu.IU;
 import es.uvigo.esei.aed1.tads.list.List;
 import es.uvigo.esei.aed1.tads.list.LinkedList;
