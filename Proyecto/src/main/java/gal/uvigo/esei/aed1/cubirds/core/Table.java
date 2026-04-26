@@ -31,7 +31,9 @@ public class Table {
 
         for (int i = 0; i < 4; i++) { // 4 filas
             while (this.filas[i].size() < 3) { // 3 cartas por fila
-                Card lastCard = DeckOfCards.getDeckOfCards().getLast();
+                // Obtener la última carta de una copia de la baraja para no romper la encapsulación
+                List<Card> deckClone = DeckOfCards.getDeckOfCards();
+                Card lastCard = deckClone.get(deckClone.size() - 1);
                 DeckOfCards.removeLast();
 
                 if (compareAndMove(i, lastCard)) {
