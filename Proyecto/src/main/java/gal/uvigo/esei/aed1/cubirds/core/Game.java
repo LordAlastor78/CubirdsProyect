@@ -21,7 +21,7 @@ public class Game { // Clase principal
         this.iu = iu;
         this.deck = new DeckOfCards();
         this.table = new Table();
-        this.players = new Player[5]; // máximo 5 jugadores
+        this.players = new Player[5];// máximo 5 jugadores
         this.currentPlayerIndex = 0; // el primer jugador comienza
     }
 
@@ -48,7 +48,7 @@ public class Game { // Clase principal
             listaJugadores.add(new Player(nombre));
 
             Player playerp = new Player(nombre); // se repite
-            listaJugadores.add(playerp); // player = playerp Uwu
+            listaJugadores.add(playerp); // player = playerp
 
         }
 
