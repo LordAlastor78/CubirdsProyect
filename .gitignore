@@ -1,0 +1,22 @@
+# Maven build output
+**/target/
+
+# Java compiled artifacts
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# IDE metadata (Eclipse)
+Proyecto/.classpath
+Proyecto/.project
+Proyecto/.settings/
+
+# IDE/editor metadata
+.idea/
+.vscode/
+
+# OS temporary files
+.DS_Store
+Thumbs.db
