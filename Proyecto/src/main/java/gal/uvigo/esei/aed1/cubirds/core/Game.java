@@ -208,7 +208,6 @@ public class Game {
 
         parEscogido = validPairs.get(eleccion - 1);
 
-
         // Preguntar fila
         iu.displayMessage(table.toString());
 
@@ -218,8 +217,6 @@ public class Game {
 
             filaElegida = iu.readNumber("");
         } while (filaElegida < 1 || filaElegida > table.getFilas().length);
-
-
 
         boolean colocarIzquierda = false;
         do {
@@ -236,7 +233,7 @@ public class Game {
 
         } while (eleccion < 1 || eleccion > 2);
 
-        playCardsOnRow(players[currentPlayerIndex], parEscogido, filaElegida, colocarIzquierda);
+        playCardsOnRow(player, parEscogido, filaElegida, colocarIzquierda);
 
     }
 
