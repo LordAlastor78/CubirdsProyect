@@ -1,9 +1,7 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
-import es.uvigo.esei.aed1.tads.list.*;
-import es.uvigo.esei.aed1.tads.stack.Stack;
+import es.uvigo.esei.aed1.tads.list.LinkedList;
 import gal.uvigo.esei.aed1.auxiliaryClasses.Pair;
-import es.uvigo.esei.aed1.tads.queue.Queue;
 
 public class Player {
     private String name;
@@ -17,7 +15,7 @@ public class Player {
         this.hand = new LinkedList<Pair<TypeBird, LinkedList<Card>>>();
 
         for (TypeBird tipo : TypeBird.values()) {
-            hand.addLast(new Pair(tipo, new LinkedList<Card>()));
+            hand.addLast(new Pair<>(tipo, new LinkedList<>()));
         }
     }
 
@@ -25,9 +23,9 @@ public class Player {
 
         Card cardToAdd = DeckOfCards.takeFirstCard();
 
-        for (Pair par : hand) {
+        for (Pair<TypeBird, LinkedList<Card>> par : hand) {
             if (par.getKey() == cardToAdd.getTypeBird()) {
-                LinkedList<Card> checkedCardList = (LinkedList<Card>) par.getValue();
+                LinkedList<Card> checkedCardList = par.getValue();
                 checkedCardList.addLast(cardToAdd);
                 par.setValue(checkedCardList);
                 break;
@@ -53,11 +51,11 @@ public class Player {
     }
 
     // Añadir carta a la mano
-    public void addCardToHand(Card card) {
+    public void addCardToHand(Card card) { 
         for (Pair<TypeBird, LinkedList<Card>> par : hand) {
             if (par.getKey() == card.getTypeBird()) {
                 // checkedCardList es necesario para tranformar el tipo de Object a List<Card>
-                LinkedList<Card> checkedCardList = (LinkedList<Card>) par.getValue();
+                LinkedList<Card> checkedCardList = par.getValue();
                 checkedCardList.addLast(card);
                 par.setValue(checkedCardList);
                 break;
@@ -80,9 +78,9 @@ public class Player {
 
     public boolean hasNoCards() {
 
-        for (Pair par : hand) {
+        for (Pair<TypeBird, LinkedList<Card>> par : hand) {
             // checkedCardList es necesario para tranformar el tipo de Object a List<Card>
-            LinkedList<Card> checkedCardList = (LinkedList<Card>) par.getValue();
+            LinkedList<Card> checkedCardList = par.getValue();
             if (!checkedCardList.isEmpty()) {
                 return false;
             }

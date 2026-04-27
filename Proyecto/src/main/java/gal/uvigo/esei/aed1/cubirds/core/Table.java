@@ -1,10 +1,7 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
-import gal.uvigo.esei.aed1.cubirds.core.Card;
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import es.uvigo.esei.aed1.tads.list.LinkedList;
+import es.uvigo.esei.aed1.tads.list.List;
 
 public class Table {
 
@@ -39,7 +36,7 @@ public class Table {
                 Card candidate = DeckOfCards.takeFirstCard();
 
                 if (!tipoRepetidoEnFila(i, candidate)) {
-                    this.filas[i].add(DeckOfCards.takeFirstCard());
+                    this.filas[i].addLast(DeckOfCards.takeFirstCard());
                 } else {
                     DeckOfCards.addLast(DeckOfCards.removeFirst()); // Movemos candidate al otro lado de la baraja
                 }
@@ -57,20 +54,23 @@ public class Table {
         return false;
     }
 
+    public List<Card>[] getFilas() {
+        return this.filas;
+    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
         sb.append("\nMesa: \n");
-        for (int i = 0; i < filas.length; i++) {    // Para todas las filas
+        for (int i = 0; i < filas.length; i++) { // Para todas las filas
             sb.append("Fila ").append(i).append(": ");
-            for (int j = 0; j < filas[i].size(); j++) {     // En cada fila, todas las cartas
+            for (int j = 0; j < filas[i].size(); j++) { // En cada fila, todas las cartas
                 sb.append(filas[i].get(j).getTypeBird()).append(" ");
             }
             sb.append("\n");
         }
-        
+
         return sb.toString();
     }
 }
@@ -123,19 +123,21 @@ public class Table {
  * }
  */
 
-
-// toString alternativo: 
+// toString alternativo:
 /*
-    @Override
-    public String toString() {
-        return new StringBuilder()
-                .append("""
-                        Table {
-                          filas=""")
-                .append(Arrays.toString(filas))
-                .append("""
-                        }
-                        """)
-                .toString();
-    }
-*/
+ * @Override
+ * public String toString() {
+ * return new StringBuilder()
+ * .append("""
+ * Table {
+ * filas=""")
+ * .append(Arrays.toString(filas))
+ * .append("""
+ * }
+ * """)
+ * .toString();
+ * }
+ * .append
+ * 
+ * ⠀⠀
+ */

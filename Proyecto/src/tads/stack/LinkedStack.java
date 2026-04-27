@@ -1,4 +1,4 @@
-package es.uvigo.esei.aed1.tads.stack;
+package stack;
 
 import java.util.NoSuchElementException;
 

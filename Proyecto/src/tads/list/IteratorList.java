@@ -1,4 +1,4 @@
-package es.uvigo.esei.aed1.tads.list;
+package list;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

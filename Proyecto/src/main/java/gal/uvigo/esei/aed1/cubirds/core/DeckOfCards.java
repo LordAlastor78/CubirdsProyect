@@ -1,7 +1,8 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
-import java.util.LinkedList;
-import gal.uvigo.esei.aed1.cubirds.core.Card;
+import es.uvigo.esei.aed1.tads.list.LinkedList;
+import es.uvigo.esei.aed1.tads.list.List;
+import gal.uvigo.esei.aed1.auxiliaryClasses.Pair;
 
 /*
     Clase DeckOfCards
@@ -25,16 +26,17 @@ public class DeckOfCards {
         // Hacemos .clear() por si se hacen dos o más partidas seguidas, para que
         // siempre se empiece desde cero.
         deckOfCards.clear();
+
         LinkedList<Card> allCards = new LinkedList<>();
 
         for (int i = 0; i < Card.values().length; i++) {
-            allCards.add(Card.values()[i]);
+            allCards.addLast(getFirstCard());
         }
 
         // Barajamos las cartas
         while (allCards.size() > 0) {
             int randomCard = (int) (Math.random() * allCards.size());
-            deckOfCards.add(allCards.remove(randomCard));
+            deckOfCards.addLast(allCards.remove(randomCard));
         }
     }
 

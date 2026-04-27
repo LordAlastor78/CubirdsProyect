@@ -1,6 +1,5 @@
-package es.uvigo.esei.aed1.tads.list;
+package list;
 
-import es.uvigo.esei.aed1.tads.EmptyException;
 import java.util.Iterator;
 
 public interface List<T> extends Iterable<T> {

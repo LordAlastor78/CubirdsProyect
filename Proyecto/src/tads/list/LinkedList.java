@@ -1,8 +1,10 @@
-package es.uvigo.esei.aed1.tads.list;
+package list;
 
-import es.uvigo.esei.aed1.tads.EmptyException;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+
+import es.uvigo.esei.aed1.tads.*;
+
 
 public class LinkedList<T> implements List<T>, Iterable<T> {
 
