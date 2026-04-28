@@ -18,6 +18,7 @@ public class Game {
         this.iu = iu;
         this.deck = new DeckOfCards();
         this.table = new Table();
+        this.table.inicializarMesa();
         this.players = null; // Se inicializa como null porque ya se convierte en un array en
                              // inicializarJugadores()
         this.currentPlayerIndex = 0;
@@ -193,13 +194,16 @@ public class Game {
             validPairs.clear(); // Limpiar la lista de tipos válidos antes de llenarla nuevamente
 
             for (Pair par : player.getHand()) {
+                // Solo mostrar tipos de pájaro que tengan al menos una carta
+                LinkedList<Card> cardList = (LinkedList<Card>) par.getValue();
+                if (!cardList.isEmpty()) {
+                    validPairs.addLast(par);
 
-                validPairs.addLast(par);
+                    TypeBird tipoSiendoMostrado = (TypeBird) par.getKey();
 
-                TypeBird tipoSiendoMostrado = (TypeBird) par.getKey();
-
-                iu.displayMessage(i + ". " + tipoSiendoMostrado.toString());
-                i++;
+                    iu.displayMessage(i + ". " + tipoSiendoMostrado.toString());
+                    i++;
+                }
             }
             eleccion = iu.readNumber("");
         } while (eleccion < 1 || eleccion > validPairs.size());
@@ -233,7 +237,7 @@ public class Game {
 
         } while (eleccion < 1 || eleccion > 2);
 
-        playCardsOnRow(player, parEscogido, filaElegida, colocarIzquierda);
+        playCardsOnRow(player, parEscogido, filaElegida - 1, colocarIzquierda);
 
     }
 
