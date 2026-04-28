@@ -1,9 +1,13 @@
 package gal.uvigo.esei.aed1.cubirds.core;
 
+//por fin arreglamos los imports :D
 import gal.uvigo.esei.aed1.auxiliaryClasses.Pair;
 import gal.uvigo.esei.aed1.cubirds.iu.IU;
 import es.uvigo.esei.aed1.tads.list.List;
 import es.uvigo.esei.aed1.tads.list.LinkedList;
+
+
+
 
 public class Game {
 
