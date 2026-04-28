@@ -39,6 +39,7 @@ public class Player {
     }
 
     public LinkedList<Pair<TypeBird, LinkedList<Card>>> getHand() {
+        
         return hand;
     }
 

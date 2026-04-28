@@ -177,6 +177,8 @@ public class Game {
         // Mostrar baraja del jugador
         iu.displayMessage(player.toString()); // :D
 
+        iu.displayMessage(table.toString());
+
         int eleccion = -1;
         // lista de los pares que puede coger como la mano
         List<Pair<TypeBird, List<Card>>> validPairs = new LinkedList();
@@ -209,8 +211,6 @@ public class Game {
         parEscogido = validPairs.get(eleccion - 1);
 
         // Preguntar fila
-        iu.displayMessage(table.toString());
-
         int filaElegida = -1;
         do {
             iu.displayMessage("¿En qué fila deseas colocar tu(s) carta(s)? (De 1 a " + table.getFilas().length + "): ");
