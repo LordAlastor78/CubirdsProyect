@@ -38,11 +38,12 @@
         </repository>
     </repositories>
     <dependencies>
-        <dependency>
+        <!-- Using local TADS implementation instead of external dependency -->
+        <!-- <dependency>
             <groupId>es.uvigo.esei.aed1</groupId>
             <artifactId>tads</artifactId>
-            <version>1.0.12</version>
-        </dependency>
+            <version>1.0.9</version>
+        </dependency> -->
     </dependencies>
     <build>
         <plugins>

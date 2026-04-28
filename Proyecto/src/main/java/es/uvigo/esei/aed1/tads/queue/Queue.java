@@ -1,4 +1,4 @@
-package queue;
+package es.uvigo.esei.aed1.tads.queue;
 
 public interface Queue<T> {
 

@@ -1,4 +1,6 @@
-package queue;
+package es.uvigo.esei.aed1.tads.queue;
+
+import es.uvigo.esei.aed1.tads.queue.EmptyException;
 
 public class LinkedQueue<T> implements Queue<T> {
 

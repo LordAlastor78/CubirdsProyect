@@ -239,6 +239,11 @@ public class Game {
 
     public void play() {
 
+        // Inicializar el juego
+        inicializarJugadores();
+        repartirCartas();
+        mostrarEstadoInicial();
+
         // Bucle principal
         boolean gameFinished = false;
 

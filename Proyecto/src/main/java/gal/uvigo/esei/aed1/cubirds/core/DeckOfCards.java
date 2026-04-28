@@ -30,7 +30,7 @@ public class DeckOfCards {
         LinkedList<Card> allCards = new LinkedList<>();
 
         for (int i = 0; i < Card.values().length; i++) {
-            allCards.addLast(getFirstCard());
+            allCards.addLast(Card.values()[i]);
         }
 
         // Barajamos las cartas
