@@ -151,18 +151,18 @@ public class Game {
 
             int lastPos = speciesPositions.get(speciesPositions.size() - 1);
 
-            // Captura cartas entre la primera y última aparición de la especie WAZAAA
-
-            for (int i = firstPos; i <= lastPos; i++) {
-
-                capturedCards.addLast(row.get(i));
+            // Captura cartas entre la primera y última aparición de la especie (SIN incluir
+            // los pájaros :D) 
+            // Solo captura si hay cartas en el medio (firstPos + 1 < lastPos)
+            if (firstPos + 1 < lastPos) {
+                for (int i = firstPos + 1; i < lastPos; i++) {
+                    capturedCards.addLast(row.get(i));
+                }
             }
 
-            // Elimina las cartas capturadas de la fila (de atrás hacia adelante para no
-            // desindexar, ósea que el orden no se vaya ni el index)
-
+            // Elimina las cartas capturadas y los pájaros rodeados de la fila (de atrás
+            // hacia adelante para no desindexar)
             for (int i = lastPos; i >= firstPos; i--) {
-
                 row.remove(i);
             }
         }
@@ -238,6 +238,19 @@ public class Game {
         } while (eleccion < 1 || eleccion > 2);
 
         playCardsOnRow(player, parEscogido, filaElegida - 1, colocarIzquierda);
+
+        // Eliminar las cartas jugadas de la mano del jugador
+        LinkedList<Card> cardsToRemove = (LinkedList<Card>) parEscogido.getValue();
+        for (Card card : cardsToRemove) {
+            player.removeCardFromHand(card);
+        }
+
+        // Mostrar la mano del jugador después de la acción
+        iu.displayMessage("\n--- Estado después de jugar cartas ---");
+        iu.displayMessage(player.toString());
+
+        // Mostrar la mesa actualizada
+        iu.displayMessage(table.toString());
 
     }
 
